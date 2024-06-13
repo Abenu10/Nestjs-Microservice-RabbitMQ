@@ -1,11 +1,12 @@
 import { Module } from '@nestjs/common';
 import { OrdersController } from './orders.controller';
 import { OrdersService } from './orders.service';
-import {ConfigModule}  from '@nestjs/config'
-import {MongooseModule}  from '@nestjs/config'
+import { ConfigModule } from '@nestjs/config';
+import { MongooseModule } from '@nestjs/mongoose';
 import { DatabaseModule } from '@app/common';
-import { Order,OrderSchema} from './schema/order.schema'
-import * as Joi from 'joi'
+import { Order, OrderSchema } from './schemas/order.schema';
+import * as Joi from 'joi';
+import { OrdersRepository } from './orders.resposity';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -16,7 +17,7 @@ import * as Joi from 'joi'
       envFilePath: './apps/order/.env',
     }),
     DatabaseModule,
-    Mongoosimport.forFeature({name : Order.name, schema: OrderSchema})
+    MongooseModule.forFeature([{ name: Order.name, schema: OrderSchema }]),
   ],
   controllers: [OrdersController],
   providers: [OrdersService, OrdersRepository],
