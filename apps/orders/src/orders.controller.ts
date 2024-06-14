@@ -5,8 +5,9 @@ import { OrdersService } from './orders.service';
 export class OrdersController {
   constructor(private readonly ordersService: OrdersService) {}
 
-  @Get()
-  getHello(): string {
-    return this.ordersService.getHello();
+  @Post()
+  async reateOrder(@Body() requests : CreateOrderReques){
+    return this.orderService.cerateOrder(requests)
   }
 }
+ 

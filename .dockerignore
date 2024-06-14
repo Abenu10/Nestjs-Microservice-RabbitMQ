@@ -1,0 +1,23 @@
+# Versioning and metadata
+.git
+.gitignore
+.dockerignore
+
+# Build dependencies
+dist
+node_modules
+
+# Environment variables
+*.env
+
+#Misc
+.eslintrc.json
+.eslintrc.js
+.eslintrc.yaml
+.eslintrc.yml
+.eslintrc.json
+.eslintrc.cjs
+.eslintrc.mjs
+.eslintrc.ts
+README.md
+.prettierrc
